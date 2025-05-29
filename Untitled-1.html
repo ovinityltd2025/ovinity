@@ -1,0 +1,1213 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ovinity: Transcend Limits. Redefine Tomorrow.</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* General Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --color-primary: #00e676; /* Bright green, futuristic feel */
+            --color-secondary: #673ab7; /* Deep violet */
+            --color-tertiary: #2196f3; /* Blue */
+            --color-background-dark: #121212;
+            --color-text-light: #e0e0e0;
+            --color-text-dark: #333;
+            --color-accent-glow: #00ff8c; /* Neon glow */
+            --font-heading: 'Orbitron', sans-serif;
+            --font-body: 'Rajdhani', sans-serif;
+            --color-electric-blue: #00f7ff; /* NEW: for more futuristic look */
+            --color-magenta-glow: #ff00ff; /* NEW: for holographic elements */
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--color-text-light);
+            background-color: var(--color-background-dark);
+            line-height: 1.6;
+            overflow-x: hidden; /* Prevent horizontal scroll */
+        }
+
+        /* Dark mode default */
+        body.light-mode {
+            background-color: #f0f2f5;
+            color: var(--color-text-dark);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-padded {
+            padding: 80px 0;
+        }
+
+        .bg-gradient {
+            background: linear-gradient(135deg, var(--color-background-dark), #2c004c);
+        }
+
+        .bg-dark {
+            background-color: #0d0d0d;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: var(--font-heading);
+            color: var(--color-primary);
+            margin-bottom: 20px;
+        }
+
+        h1 { font-size: 3.5em; text-align: center; }
+        h2 { font-size: 2.5em; text-align: center; margin-bottom: 40px; }
+        h3 { font-size: 1.8em; }
+        p { margin-bottom: 15px; }
+
+        a {
+            color: var(--color-primary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        a:hover {
+            color: var(--color-accent-glow);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            border-radius: 5px;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .btn-primary {
+            background-color: var(--color-primary);
+            color: var(--color-background-dark);
+            box-shadow: 0 0 15px rgba(0, 230, 118, 0.4);
+        }
+        .btn-primary:hover {
+            background-color: transparent;
+            color: var(--color-primary);
+            border-color: var(--color-primary);
+            box-shadow: 0 0 25px var(--color-accent-glow);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--color-primary);
+            border-color: var(--color-primary);
+        }
+        .btn-secondary:hover {
+            background-color: var(--color-primary);
+            color: var(--color-background-dark);
+            box-shadow: 0 0 25px var(--color-accent-glow);
+        }
+
+        /* Header */
+        .main-header {
+            background-color: rgba(18, 18, 18, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0, 230, 118, 0.2);
+        }
+
+        .main-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-heading);
+            font-size: 1.8em;
+            font-weight: 700;
+            color: var(--color-primary);
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+        }
+        .nav-links li {
+            margin-left: 30px;
+        }
+        .nav-links a {
+            color: var(--color-text-light);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        .nav-links a:hover {
+            color: var(--color-primary);
+            text-shadow: 0 0 5px var(--color-accent-glow);
+        }
+        .search-icon, .mode-toggle {
+            font-size: 1.2em;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            color: #fff;
+            text-shadow: 0 0 10px rgba(0, 230, 118, 0.3);
+        }
+
+        .hero-bg-animation {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(0, 230, 118, 0.1) 0%, rgba(18, 18, 18, 0.8) 70%);
+            animation: pulseGlow 10s infinite alternate;
+        }
+
+        @keyframes pulseGlow {
+             0% { transform: scale(1); opacity: 0.8; }
+            100% { transform: scale(1.05); opacity: 1; }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%; /* Ensure content takes full height to center logo */
+        }
+
+        .hero-ctas {
+            margin-top: 40px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        /* --- Ovinity Logo Animation Styles (Quantum Energy Core & Data Streams) --- */
+        .ovinity-logo-animation {
+            width: 280px; /* Slightly larger */
+            height: 280px;
+            position: relative;
+            margin-bottom: 40px;
+            perspective: 1500px; /* Deeper perspective */
+            transform-style: preserve-3d;
+            animation: rotate3D 25s linear infinite; /* Faster overall rotation */
+            filter: drop-shadow(0 0 15px rgba(0, 255, 140, 0.5)); /* Overall subtle glow */
+        }
+
+        .logo-core {
+            width: 90px;
+            height: 90px;
+            background: radial-gradient(circle at center, var(--color-accent-glow) 0%, var(--color-primary) 30%, rgba(0, 230, 118, 0.4) 70%, transparent 90%);
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 40px var(--color-accent-glow), 0 0 90px rgba(0, 230, 118, 0.3), inset 0 0 20px rgba(255, 255, 255, 0.1);
+            animation: coreGlow 2.5s ease-in-out infinite alternate, coreTexture 15s linear infinite; /* Added core texture */
+            z-index: 5; /* Ensure core is on top */
+            overflow: hidden; /* For internal pseudo-elements */
+        }
+
+        /* Internal pattern for the core */
+        .logo-core::before, .logo-core::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: repeating-linear-gradient(45deg, transparent, transparent 5px, rgba(0, 255, 140, 0.1) 5px, rgba(0, 255, 140, 0.1) 10px);
+            opacity: 0.3;
+            animation: corePattern 10s linear infinite;
+        }
+        .logo-core::after {
+            background: repeating-linear-gradient(-45deg, transparent, transparent 5px, rgba(0, 255, 140, 0.15) 5px, rgba(0, 255, 140, 0.15) 10px);
+            animation-delay: -5s;
+            animation-direction: reverse;
+        }
+
+        .orbital-path {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            border-radius: 50%;
+            /* Subtle or invisible paths, rely on the elements themselves */
+            border: 1px dotted rgba(255, 255, 255, 0.05); /* Very faint guide */
+            transform-style: preserve-3d;
+            animation: orbit var(--orbit-speed) linear infinite;
+        }
+
+        /* Define specific orbital sizes, speeds, and transforms */
+        .orbital-path.stream-1 {
+            width: 150px; height: 150px; margin-left: -75px; margin-top: -75px;
+            --orbit-speed: 18s;
+            transform: rotateX(75deg) rotateY(15deg);
+            border-color: rgba(0, 255, 140, 0.1);
+        }
+        .orbital-path.stream-2 {
+            width: 220px; height: 220px; margin-left: -110px; margin-top: -110px;
+            --orbit-speed: 25s;
+            transform: rotateX(25deg) rotateY(60deg) rotateZ(10deg);
+            border-color: rgba(0, 247, 255, 0.1); /* Electric blue for streams */
+        }
+        .orbital-path.stream-3 {
+            width: 280px; height: 280px; margin-left: -140px; margin-top: -140px;
+            --orbit-speed: 30s;
+            transform: rotateX(55deg) rotateZ(-20deg) rotateY(30deg);
+            border-color: rgba(103, 58, 183, 0.1); /* Deep violet for streams */
+        }
+
+        .orbital-path.fragment-1 {
+            width: 100px; height: 100px; margin-left: -50px; margin-top: -50px;
+            --orbit-speed: 12s;
+            transform: rotateX(10deg) rotateY(80deg);
+            border-color: transparent; /* No visible path for fragments */
+        }
+        .orbital-path.fragment-2 {
+            width: 170px; height: 170px; margin-left: -85px; margin-top: -85px;
+            --orbit-speed: 20s;
+            transform: rotateY(-70deg) rotateZ(40deg);
+            border-color: transparent;
+        }
+        .orbital-path.fragment-3 {
+            width: 200px; height: 200px; margin-left: -100px; margin-top: -100px;
+            --orbit-speed: 22s;
+            transform: rotateX(-30deg) rotateZ(60deg);
+            border-color: transparent;
+        }
+        .orbital-path.fragment-4 {
+            width: 250px; height: 250px; margin-left: -125px; margin-top: -125px;
+            --orbit-speed: 28s;
+            transform: rotateX(40deg) rotateY(-50deg);
+            border-color: transparent;
+        }
+
+        /* Data Stream Elements */
+        .data-stream::before {
+            content: '';
+            position: absolute;
+            width: 10px; /* Width of the 'data chunk' */
+            height: 10px;
+            background-color: var(--color-accent-glow);
+            border-radius: 50%; /* Start as a sphere */
+            top: 0;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 10px var(--color-accent-glow), 0 0 20px rgba(0, 255, 140, 0.5);
+            animation: streamFlow var(--orbit-speed) linear infinite, pulseOrb 2s ease-in-out infinite alternate;
+        }
+
+        .data-stream.stream-1::before {
+            background-color: var(--color-primary);
+            box-shadow: 0 0 10px var(--color-primary), 0 0 20px rgba(0, 230, 118, 0.5);
+            animation-delay: -0.5s;
+        }
+        .data-stream.stream-2::before {
+            background-color: #00f7ff; /* Electric Blue */
+            box-shadow: 0 0 10px #00f7ff, 0 0 20px rgba(0, 247, 255, 0.5);
+            animation-delay: -1.2s;
+        }
+        .data-stream.stream-3::before {
+            background-color: var(--color-secondary);
+            box-shadow: 0 0 10px var(--color-secondary), 0 0 20px rgba(103, 58, 183, 0.5);
+            animation-delay: -2s;
+        }
+
+        /* Holographic Fragments */
+        .holo-fragment-container {
+            /* These are just the orbital paths for the fragments */
+            border: none !important; /* No visible path */
+        }
+        .holo-fragment {
+            width: 15px; /* Size of fragment */
+            height: 15px;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translate(-50%, -50%) rotateX(0deg) rotateY(0deg) rotateZ(0deg); /* Initial rotation */
+            background: linear-gradient(45deg, rgba(0, 247, 255, 0.7), rgba(103, 58, 183, 0.7)); /* Gradient for holographic look */
+            box-shadow: 0 0 10px rgba(0, 247, 255, 0.5), 0 0 20px rgba(103, 58, 183, 0.3);
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%); /* Example: triangle */
+            animation: fragmentSpin 5s linear infinite, fragmentFlicker 1s infinite alternate;
+            opacity: 0.8;
+        }
+
+        .holo-fragment.fragment-shape-1 {
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%); /* Triangle */
+            background: linear-gradient(45deg, rgba(0, 247, 255, 0.7), rgba(0, 255, 140, 0.7));
+            animation-delay: -0.8s, -0.3s;
+        }
+        .holo-fragment.fragment-shape-2 {
+            clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%); /* Square */
+            width: 12px; height: 12px;
+            background: linear-gradient(135deg, rgba(103, 58, 183, 0.7), rgba(255, 0, 255, 0.7)); /* Magenta tint */
+            animation-delay: -1.5s, -0.7s;
+        }
+        .holo-fragment.fragment-shape-3 {
+            clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%); /* Pentagon */
+            width: 18px; height: 18px;
+            background: linear-gradient(90deg, rgba(0, 255, 140, 0.7), rgba(255, 165, 0, 0.7)); /* Orange tint */
+            animation-delay: -2.2s, -0.1s;
+        }
+        .holo-fragment.fragment-shape-4 {
+            clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%); /* Hexagon */
+            width: 14px; height: 14px;
+            background: linear-gradient(-45deg, rgba(0, 247, 255, 0.7), rgba(255, 0, 255, 0.7));
+            animation-delay: -3s, -0.5s;
+        }
+
+        /* Animation Keyframes */
+        @keyframes rotate3D {
+            from { transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg); }
+            to { transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg); } /* Full 360 rotation on all axes */
+        }
+
+        @keyframes orbit {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* New animation for data streams */
+        @keyframes streamFlow {
+            0% { transform: translate(-50%, -50%) scaleX(1); opacity: 1; }
+            50% { transform: translate(-50%, -50%) scaleX(2) rotateY(30deg); opacity: 0.8; }
+            100% { transform: translate(-50%, -50%) scaleX(1); opacity: 1; }
+        }
+
+        @keyframes pulseOrb {
+            0% { transform: scale(1); opacity: 0.7; }
+            50% { transform: scale(1.1); opacity: 1; } /* More subtle pulse */
+            100% { transform: scale(1); opacity: 0.7; }
+        }
+
+        @keyframes coreGlow {
+            0% { box-shadow: 0 0 40px var(--color-accent-glow), 0 0 90px rgba(0, 230, 118, 0.3), inset 0 0 20px rgba(255, 255, 255, 0.1); }
+            50% { box-shadow: 0 0 60px var(--color-accent-glow), 0 0 120px rgba(0, 230, 118, 0.5), inset 0 0 30px rgba(255, 255, 255, 0.2); }
+            100% { box-shadow: 0 0 40px var(--color-accent-glow), 0 0 90px rgba(0, 230, 118, 0.3), inset 0 0 20px rgba(255, 255, 255, 0.1); }
+        }
+
+        @keyframes coreTexture {
+            0% { background-position: 0% 0%; }
+            100% { background-position: 100% 100%; }
+        }
+
+        @keyframes corePattern {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes fragmentSpin {
+            0% { transform: translate(-50%, -50%) rotateX(0deg) rotateY(0deg) rotateZ(0deg); }
+            100% { transform: translate(-50%, -50%) rotateX(360deg) rotateY(360deg) rotateZ(360deg); } /* Full 3D spin */
+        }
+
+        @keyframes fragmentFlicker {
+            0%, 100% { opacity: 0.8; }
+            25% { opacity: 0.9; }
+            50% { opacity: 0.7; }
+            75% { opacity: 1; }
+        }
+        /* --- End Ovinity Logo Animation Styles --- */
+
+
+        /* Innovations Section */
+        .innovations-section {
+            background-color: #1a1a1a;
+        }
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .product-item {
+            background-color: #222;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(0, 230, 118, 0.1);
+        }
+        .product-item:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 10px 30px rgba(0, 230, 118, 0.3);
+        }
+
+        .product-visual {
+            height: 150px; /* Placeholder for 3D renders */
+            background-color: #333;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2em;
+            color: var(--color-primary);
+        }
+        /* Specific product visual placeholders */
+        .gpu-visual::before { content: '\f1ad'; font-family: 'Font Awesome 5 Free'; font-weight: 900; }
+        .cpu-visual::before { content: '\f2db'; font-family: 'Font Awesome 5 Free'; font-weight: 900; }
+        .laptop-visual::before { content: '\f109'; font-family: 'Font Awesome 5 Free'; font-weight: 900; }
+        .mobile-visual::before { content: '\f3cd'; font-family: 'Font Awesome 5 Free'; font-weight: 900; }
+        .future-visual::before { content: '\f06e'; font-family: 'Font Awesome 5 Free'; font-weight: 900; } /* Eye icon for future */
+
+
+        /* Sectors Section */
+        .sector-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .sector-card {
+            background-color: rgba(255, 255, 255, 0.05);
+            padding: 30px;
+            border-radius: 10px;
+            border: 1px solid rgba(103, 58, 183, 0.2);
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+        }
+        .sector-card:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-color: var(--color-secondary);
+        }
+        .sector-card h3 {
+            color: var(--color-secondary);
+            margin-bottom: 15px;
+        }
+
+        /* About Section */
+        .about-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 50px;
+            justify-content: center;
+        }
+        .about-text {
+            flex: 2;
+            min-width: 300px;
+        }
+        .founder-spotlight {
+            flex: 1;
+            min-width: 250px;
+            text-align: center;
+            background-color: #222;
+            padding: 30px;
+            border-radius: 10px;
+            border: 1px solid rgba(0, 230, 118, 0.2);
+            box-shadow: 0 0 20px rgba(0, 230, 118, 0.1);
+        }
+        .founder-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--color-primary);
+            margin-bottom: 20px;
+            box-shadow: 0 0 15px var(--color-accent-glow);
+        }
+        .founder-title {
+            color: var(--color-primary);
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+        .founder-quote {
+            font-style: italic;
+            color: #ccc;
+            font-size: 0.95em;
+            margin-top: 20px;
+            border-left: 3px solid var(--color-primary);
+            padding-left: 15px;
+        }
+
+        /* Careers Section */
+        .careers-cta-block {
+            text-align: center;
+            padding: 40px;
+            background-color: rgba(0, 230, 118, 0.05);
+            border-radius: 10px;
+            border: 1px solid rgba(0, 230, 118, 0.2);
+            margin-top: 50px;
+        }
+        .careers-cta-block p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+            margin-top: 50px;
+        }
+        .contact-form-container {
+            background-color: #222;
+            padding: 40px;
+            border-radius: 10px;
+            border: 1px solid rgba(0, 230, 118, 0.2);
+        }
+        .contact-form input,
+        .contact-form select,
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #444;
+            border-radius: 5px;
+            background-color: #333;
+            color: var(--color-text-light);
+            font-family: var(--font-body);
+            font-size: 1em;
+        }
+        .contact-form input::placeholder,
+        .contact-form textarea::placeholder {
+            color: #aaa;
+        }
+        .contact-form button {
+            width: 100%;
+        }
+
+        .contact-info-block {
+            background-color: #222;
+            padding: 40px;
+            border-radius: 10px;
+            border: 1px solid rgba(103, 58, 183, 0.2);
+        }
+        .contact-info-block p {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        .contact-info-block p i {
+            margin-right: 10px;
+            color: var(--color-primary);
+        }
+        .social-links {
+            margin-top: 30px;
+            display: flex;
+            gap: 20px;
+        }
+        .social-links a {
+            font-size: 1.8em;
+            color: var(--color-text-light);
+            transition: color 0.3s ease;
+        }
+        .social-links a:hover {
+            color: var(--color-primary);
+            text-shadow: 0 0 10px var(--color-accent-glow);
+        }
+        .chatbot-info {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+        }
+        .chat-trigger {
+            font-weight: bold;
+        }
+
+        /* Footer */
+        .main-footer {
+            background-color: #0a0a0a;
+            padding: 40px 0;
+            text-align: center;
+            border-top: 1px solid rgba(0, 230, 118, 0.1);
+        }
+        .footer-links {
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .footer-links a {
+            color: #ccc;
+            font-size: 0.9em;
+        }
+        .footer-links a:hover {
+            color: var(--color-primary);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5em; }
+            h2 { font-size: 2em; }
+            .nav-links {
+                flex-direction: column;
+                background-color: rgba(18, 18, 18, 0.95);
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                padding: 20px 0;
+                transform: translateY(-100%);
+                opacity: 0;
+                pointer-events: none;
+                transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+            }
+            .nav-links.active {
+                transform: translateY(0);
+                opacity: 1;
+                pointer-events: all;
+            }
+            .nav-links li {
+                margin: 10px 0;
+                text-align: center;
+            }
+            .nav-toggle {
+                display: block;
+                background: none;
+                border: none;
+                cursor: pointer;
+                padding: 10px;
+                position: relative;
+                z-index: 1001; /* Above nav-links when open */
+            }
+            .nav-toggle .bar {
+                display: block;
+                width: 25px;
+                height: 3px;
+                background-color: var(--color-primary);
+                margin: 5px auto;
+                transition: all 0.3s ease-in-out;
+            }
+            .nav-toggle.active .bar:nth-child(2) {
+                opacity: 0;
+            }
+            .nav-toggle.active .bar:nth-child(1) {
+                transform: translateY(8px) rotate(45deg);
+            }
+            .nav-toggle.active .bar:nth-child(3) {
+                transform: translateY(-8px) rotate(-45deg);
+            }
+
+            .hero-ctas {
+                flex-direction: column;
+            }
+            .hero-ctas .btn {
+                width: 80%;
+                margin: 10px auto;
+            }
+
+            .product-grid, .sector-grid, .contact-grid, .about-content {
+                grid-template-columns: 1fr;
+            }
+        }
+        /* Add this to your CSS for the fade-in effect */
+        .hidden-section {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 1s ease-out, transform 1s ease-out;
+        }
+        .hidden-section.fade-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Modal Styles for CV Submission */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 2000; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgba(0,0,0,0.8); /* Black w/ opacity */
+            backdrop-filter: blur(5px);
+            padding-top: 60px;
+        }
+
+        .modal-content {
+            background-color: #1a1a1a;
+            margin: 5% auto;
+            padding: 30px;
+            border: 1px solid var(--color-primary);
+            border-radius: 10px;
+            width: 80%;
+            max-width: 600px;
+            position: relative;
+            box-shadow: 0 0 25px rgba(0, 230, 118, 0.4);
+            animation: fadeInModal 0.5s ease-out;
+        }
+
+        @keyframes fadeInModal {
+            from { opacity: 0; transform: translateY(-50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .close-button {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .close-button:hover,
+        .close-button:focus {
+            color: var(--color-primary);
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .cv-submission-form input[type="text"],
+        .cv-submission-form input[type="email"],
+        .cv-submission-form textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #444;
+            border-radius: 5px;
+            background-color: #333;
+            color: var(--color-text-light);
+            font-family: var(--font-body);
+            font-size: 1em;
+        }
+        .cv-submission-form textarea {
+            resize: vertical;
+        }
+
+        .file-upload-label {
+            display: block;
+            background-color: var(--color-secondary);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            margin-bottom: 10px;
+            transition: background-color 0.3s ease;
+        }
+        .file-upload-label:hover {
+            background-color: #532d9f;
+        }
+        .file-upload-label i {
+            margin-right: 8px;
+        }
+        .file-upload-label input[type="file"] {
+            display: none; /* Hide the default file input */
+        }
+        #fileName {
+            display: block;
+            text-align: center;
+            font-size: 0.9em;
+            color: #bbb;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container">
+            <a href="/" class="logo">Ovinity</a>
+            <nav class="main-nav">
+                <button class="nav-toggle" aria-label="Toggle navigation">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+                <ul class="nav-links">
+                    <li><a href="#innovations">Innovations</a></li>
+                    <li><a href="#sectors">Sectors</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#careers">Careers</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#" class="search-icon"><i class="fas fa-search"></i></a></li>
+                    <li><a href="#" class="mode-toggle"><i class="fas fa-moon"></i></a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero-section">
+            <div class="hero-bg-animation"></div>
+            <div class="container hero-content">
+                <div class="ovinity-logo-animation">
+                    <div class="logo-core"></div>
+                    <div class="orbital-path data-stream stream-1"></div>
+                    <div class="orbital-path data-stream stream-2"></div>
+                    <div class="orbital-path data-stream stream-3"></div>
+
+                    <div class="orbital-path holo-fragment-container fragment-1">
+                        <div class="holo-fragment fragment-shape-1"></div>
+                    </div>
+                    <div class="orbital-path holo-fragment-container fragment-2">
+                        <div class="holo-fragment fragment-shape-2"></div>
+                    </div>
+                    <div class="orbital-path holo-fragment-container fragment-3">
+                        <div class="holo-fragment fragment-shape-3"></div>
+                    </div>
+                    <div class="orbital-path holo-fragment-container fragment-4">
+                        <div class="holo-fragment fragment-shape-4"></div>
+                    </div>
+                </div>
+                <h1>Ovinity</h1>
+                <h2>Transcend Limits. Redefine Tomorrow.</h2>
+                <p>Pioneering the next era of technological evolution, pushing the boundaries of what's possible.</p>
+                <div class="hero-ctas">
+                    <a href="#innovations" class="btn btn-primary">Explore Our Innovations</a>
+                    <a href="#careers" class="btn btn-secondary">Join Our Vision</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="innovations" class="innovations-section section-padded">
+            <div class="container">
+                <h2>Our Core: Engineering Excellence</h2>
+                <p class="section-subtitle">Discover the technologies shaping the future.</p>
+                <div class="product-grid">
+                    <div class="product-item" data-product="gpu">
+                        <div class="product-visual gpu-visual"></div> <h3>Graphics Cards</h3>
+                        <p>Unleashing Unprecedented Power for AI & Gaming.</p>
+                    </div>
+                    <div class="product-item" data-product="cpu">
+                        <div class="product-visual cpu-visual"></div> <h3>Processors</h3>
+                        <p>The Brain of Tomorrow: Speed, Efficiency, Intelligence.</p>
+                    </div>
+                    <div class="product-item" data-product="laptop">
+                        <div class="product-visual laptop-visual"></div> <h3>Laptops</h3>
+                        <p>Seamless Integration. Boundless Productivity.</p>
+                    </div>
+                    <div class="product-item" data-product="mobile">
+                        <div class="product-visual mobile-visual"></div> <h3>Mobile Devices</h3>
+                        <p>Your World. Connected. Always.</p>
+                    </div>
+                    <div class="product-item" data-product="future">
+                        <div class="product-visual future-visual"></div> <h3>Beyond the Horizon</h3>
+                        <p>Exploring the next frontier of technological possibility.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="sectors" class="sectors-section section-padded bg-gradient">
+            <div class="container">
+                <h2>Work Sectors: Where Innovation Thrives</h2>
+                <div class="sector-grid">
+                    <div class="sector-card">
+                        <h3>High-Performance Computing & AI</h3>
+                        <p>Fueling the next generation of artificial intelligence, machine learning, and scientific discovery.</p>
+                    </div>
+                    <div class="sector-card">
+                        <h3>Immersive Realities</h3>
+                        <p>Crafting hyper-realistic virtual worlds and augmented experiences.</p>
+                    </div>
+                    <div class="sector-card">
+                        <h3>Sustainable Technologies</h3>
+                        <p>Pioneering eco-conscious designs and energy-efficient solutions for a sustainable future.</p>
+                    </div>
+                    <div class="sector-card">
+                        <h3>Advanced Robotics & Automation</h3>
+                        <p>Empowering intelligent machines and autonomous systems that revolutionize industries.</p>
+                    </div>
+                    <div class="sector-card">
+                        <h3>Quantum Computing Research</h3>
+                        <p>Venturing into the unknown to unlock unimaginable computational power.</p>
+                    </div>
+                    <div class="sector-card">
+                        <h3>Consumer Electronics Reimagined</h3>
+                        <p>Designing intuitive, powerful, and aesthetically breathtaking devices for everyday life.</p>
+                    </div>
+                    <div class="sector-card">
+                        <h3>Enterprise Solutions</h3>
+                        <p>Delivering robust and scalable technology infrastructure for global businesses.</p>
+                    </div>
+                    <div class="sector-card">
+                        <h3>Biotech & Healthcare Integration</h3>
+                        <p>Integrating cutting-edge tech to advance medical research and patient care.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about-section section-padded">
+            <div class="container">
+                <h2>About Us: The Genesis of Tomorrow</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <h3>Our Philosophy</h3>
+                        <p>At Ovinity, we believe in a future where technology amplifies human potential, creating a world of limitless possibilities. We are driven by a relentless pursuit of excellence and a commitment to responsible innovation.</p>
+                        <h3>Our Vision</h3>
+                        <p>To be the vanguard of technological evolution, setting new benchmarks for performance, design, and user experience.</p>
+                    </div>
+                    <div class="founder-spotlight">
+                        <img src="C:\Users\hp\Downloads\ovi pic yt.jpg" alt="Tanvir Rahman Ovi - Founder & CEO" class="founder-img">
+                        <h3>Tanvir Rahman Ovi</h3>
+                        <p class="founder-title">Founder & CEO</p>
+                        <blockquote class="founder-quote">"The future isn't just something we anticipate; it's something we actively build, pixel by pixel, circuit by circuit. At Ovinity, we're not just creating products; we're crafting experiences that redefine tomorrow."</blockquote>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="careers" class="careers-section section-padded bg-dark">
+            <div class="container">
+                <h2>Careers: Shape the Future With Us</h2>
+                <p class="section-subtitle">Join a pioneering team dedicated to pushing the boundaries of technology.</p>
+                <div class="careers-cta-block">
+                    <p>Ready to make an impact? Explore our current openings and become part of the Ovinity family.</p>
+                    <a href="#" class="btn btn-primary btn-lg">Explore Open Positions</a> </div>
+                <div class="careers-cta-block" style="margin-top: 20px; background-color: rgba(33, 150, 243, 0.05); border-color: rgba(33, 150, 243, 0.2);">
+                    <p>Want to send us your CV directly?</p>
+                    <button class="btn btn-secondary btn-lg" id="openCvForm">Send Your CV</button>
+                    <div id="cvSubmissionModal" class="modal">
+                        <div class="modal-content">
+                            <span class="close-button">&times;</span>
+                            <h3>Submit Your CV</h3>
+                            <form class="cv-submission-form">
+                                <input type="text" name="fullName" placeholder="Full Name" required>
+                                <input type="email" name="email" placeholder="Email Address" required>
+                                <input type="text" name="desiredRole" placeholder="Desired Role (Optional)">
+                                <textarea name="coverLetter" placeholder="Cover Letter (Optional)" rows="4"></textarea>
+                                <label for="cvFile" class="file-upload-label">
+                                    <i class="fas fa-cloud-upload-alt"></i> Upload CV/Resume
+                                    <input type="file" id="cvFile" name="cvFile" accept=".pdf,.doc,.docx" required>
+                                </label>
+                                <span id="fileName">No file chosen</span>
+                                <button type="submit" class="btn btn-primary">Submit Application</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact-section section-padded">
+            <div class="container">
+                <h2>Contact Us: Connect with Ovinity</h2>
+                <div class="contact-grid">
+                    <div class="contact-form-container">
+                        <h3>General Inquiries</h3>
+                        <form class="contact-form">
+                            <input type="text" name="name" placeholder="Your Name" required>
+                            <input type="email" name="email" placeholder="Your Email" required>
+                            <select name="subject" required>
+                                <option value="">Select Subject</option>
+                                <option value="sales">Sales Inquiry</option>
+                                <option value="support">Technical Support</option>
+                                <option value="careers">Careers</option>
+                                <option value="partnerships">Partnerships</option>
+                                <option value="media">Press & Media</option>
+                                <option value="other">Other</option>
+                            </select>
+                            <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+                            <button type="submit" class="btn btn-primary">Send Message</button>
+                        </form>
+                    </div>
+                    <div class="contact-info-block">
+                        <h3>Reach Out</h3>
+                        <p><i class="fas fa-envelope"></i> Email: <a href="mailto:info@ovinity.com">info@ovinity.com</a></p>
+                        <p><i class="fas fa-phone-alt"></i> Phone: 01720933272</p>
+                        <div class="social-links">
+                            <a href="#" aria-label="Ovinity on Twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="#" aria-label="Ovinity on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" aria-label="Ovinity on YouTube"><i class="fab fa-youtube"></i></a>
+                            <a href="#" aria-label="Ovinity on Instagram"><i class="fab fa-instagram"></i></a>
+                        </div>
+                        <div class="chatbot-info">
+                            <h4>Need immediate assistance?</h4>
+                            <p>Our AI assistant is available 24/7. <a href="#" class="chat-trigger">Start Chat</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-links">
+                <a href="#innovations">Innovations</a>
+                <a href="#sectors">Sectors</a>
+                <a href="#about">About Us</a>
+                <a href="#careers">Careers</a>
+                <a href="#contact">Contact</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+            </div>
+            <p>&copy; 2025 Ovinity Corp. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- Navigation Toggle for Mobile ---
+            const navToggle = document.querySelector('.nav-toggle');
+            const navLinks = document.querySelector('.nav-links');
+
+            if (navToggle && navLinks) {
+                navToggle.addEventListener('click', () => {
+                    navLinks.classList.toggle('active');
+                    navToggle.classList.toggle('active');
+                });
+
+                // Close nav when a link is clicked (for smooth scrolling)
+                navLinks.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        navLinks.classList.remove('active');
+                        navToggle.classList.remove('active');
+                    });
+                });
+            }
+
+            // --- Smooth Scrolling for Anchor Links ---
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            // --- Dark/Light Mode Toggle ---
+            const modeToggle = document.querySelector('.mode-toggle');
+            if (modeToggle) {
+                modeToggle.addEventListener('click', () => {
+                    document.body.classList.toggle('light-mode');
+                    const icon = modeToggle.querySelector('i');
+                    if (document.body.classList.contains('light-mode')) {
+                        icon.classList.remove('fa-moon');
+                        icon.classList.add('fa-sun');
+                    } else {
+                        icon.classList.remove('fa-sun');
+                        icon.classList.add('fa-moon');
+                    }
+                });
+            }
+
+            // --- Placeholder for Contact Form Submission (Frontend only) ---
+            const contactForm = document.querySelector('.contact-form');
+            if (contactForm) {
+                contactForm.addEventListener('submit', (e) => {
+                    e.preventDefault(); // Prevent default form submission
+
+                    // In a real application, you would send this data to a backend server.
+                    // Example: using fetch API
+                    /*
+                    const formData = new FormData(contactForm);
+                    fetch('/api/contact', { // Your backend API endpoint
+                        method: 'POST',
+                        body: JSON.stringify(Object.fromEntries(formData)),
+                        headers: {
+                            'Content-Type': 'application/json'
+                        }
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log('Success:', data);
+                        alert('Your message has been sent successfully!');
+                        contactForm.reset();
+                    })
+                    .catch((error) => {
+                        console.error('Error:', error);
+                        alert('There was an error sending your message. Please try again later.');
+                    });
+                    */
+
+                    // For this conceptual example, just show an alert:
+                    alert('Your message has been sent successfully to Ovinity! We will get back to you soon.');
+                    contactForm.reset();
+                    console.log('Form submitted (conceptual). Data would be sent to backend.');
+                });
+            }
+
+            // --- CV Submission Modal Logic ---
+            const openCvFormBtn = document.getElementById('openCvForm');
+            const cvSubmissionModal = document.getElementById('cvSubmissionModal');
+            const closeButton = cvSubmissionModal.querySelector('.close-button');
+            const cvFile = document.getElementById('cvFile');
+            const fileNameSpan = document.getElementById('fileName');
+            const cvSubmissionForm = cvSubmissionModal.querySelector('.cv-submission-form');
+
+            if (openCvFormBtn && cvSubmissionModal) {
+                openCvFormBtn.addEventListener('click', () => {
+                    cvSubmissionModal.style.display = 'block';
+                });
+
+                closeButton.addEventListener('click', () => {
+                    cvSubmissionModal.style.display = 'none';
+                });
+
+                window.addEventListener('click', (event) => {
+                    if (event.target == cvSubmissionModal) {
+                        cvSubmissionModal.style.display = 'none';
+                    }
+                });
+
+                cvFile.addEventListener('change', (event) => {
+                    if (event.target.files.length > 0) {
+                        fileNameSpan.textContent = event.target.files[0].name;
+                    } else {
+                        fileNameSpan.textContent = 'No file chosen';
+                    }
+                });
+
+                cvSubmissionForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    // This would involve:
+                    // 1. Sending CV file to a secure file storage (e.g., S3, Google Cloud Storage)
+                    // 2. Sending form data to a backend API which integrates with an ATS (Applicant Tracking System)
+                    // 3. Ensuring quantum-secured encryption for the data (requires specialized backend implementation)
+                    alert('Your CV has been submitted successfully! Thank you for your interest in Ovinity.');
+                    cvSubmissionForm.reset();
+                    fileNameSpan.textContent = 'No file chosen'; // Reset file name display
+                    cvSubmissionModal.style.display = 'none'; // Close modal after submission
+                    console.log('CV submitted (conceptual). Data would be securely processed by backend.');
+                });
+            }
+
+
+            // --- Basic scroll-based animations (concept) ---
+            const sections = document.querySelectorAll('section');
+
+            const observerOptions = {
+                root: null, // viewport
+                rootMargin: '0px',
+                threshold: 0.2 // Trigger when 20% of the section is visible
+            };
+
+            const sectionObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('fade-in'); // Add a class for animation
+                        observer.unobserve(entry.target); // Stop observing once animated
+                    }
+                });
+            }, observerOptions);
+
+            sections.forEach(section => {
+                section.classList.add('hidden-section'); // Initial state for animation
+                sectionObserver.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>
